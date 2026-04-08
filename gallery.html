@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>stefkos nitro</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle, #1a001f, #000000);
+      color: white;
+      font-family: Arial;
+      cursor: pointer;
+    }
+
+    /* Intro overlay */
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 10;
+    }
+
+    #overlay h1 {
+      color: #ff2e63;
+      text-shadow: 0 0 20px #ff2e63;
+      font-size: 40px;
+      margin: 0;
+    }
+
+    #overlay p {
+      color: #bbb;
+    }
+
+    #overlay img {
+      width: 200px;
+      margin: 20px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      padding: 20px;
+    }
+
+    img, video {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #9b59ff;
+    }
+
+    img:hover, video:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #ff2e63;
+      transition: 0.3s;
+    }
+
+    h1.mainTitle {
+      text-align:center;
+      font-size:40px;
+      color:#ff2e63;
+      text-shadow: 0 0 10px #ff2e63, 0 0 20px #9b59ff;
+      margin-top:20px;
+    }
+
+    p.mainText {
+      text-align:center;
+      color:#bbb;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Intro overlay -->
+  <div id="overlay" onclick="startEverything()">
+    <h1>😈 enter if you dare 😈</h1>
+    <img src="spooky.gif" alt="spooky GIF">
+    <p>(click to continue)</p>
+  </div>
+
+  <!-- Background music -->
+  <audio id="bgMusic" loop>
+    <source src="horror.mp3" type="audio/mpeg">
+  </audio>
+
+  <h1 class="mainTitle">😈 stefkos nitro 😈</h1>
+  <p class="mainText">welcome to the collection...</p>
+
+  <div class="grid">
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <video loop playsinline muted>
+      <source src="video1.mp4" type="video/mp4">
+    </video>
+    <video loop playsinline muted>
+      <source src="video2.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <script>
+    function startEverything() {
+      document.getElementById("overlay").style.display = "none";
+
+      // start background music
+      const music = document.getElementById("bgMusic");
+      music.volume = 1.0;
+      music.play();
+
+      // start videos (muted)
+      document.querySelectorAll("video").forEach(v => v.play());
+    }
+  </script>
+
+</body>
+</html>
